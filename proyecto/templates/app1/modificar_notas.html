@@ -1,0 +1,21 @@
+<div>
+        <div class="modal-content">
+                <form  role = "form" action="{% url 'gestor:modificar_notas' object.pk %}" method="POST">
+                    <div class="modal-body">
+                        {% csrf_token %}
+                            <div class="panel-body">
+                                {{ form.as_p }}
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-12 text-right">
+                            <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="submit" value="Guardar">
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#f6685e;color:white" onclick="return cerrar_modal()">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+                
+                </form>
+        </div>
+</div>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}"> 
+        <link rel="stylesheet" type="text/css" href="{% static 'css/archivo.css' %}">       
+    </head>
+ 
+ <body>
+    <!-- <nav class = "navbar navbar-light" style = " background-color:#008854;">
+        <ul class = "margen"><h1 class="text-white">Instituto Nacional de Comercio</h1></ul>
+    </nav>
+    <div class="list-group-item" style ="background-color: #333333"> 
+        <nav>
+            <ul class = "margen"><h2>Registro Académico 2019</h2></ul>
+        </nav>
+    </div> -->
+
+    <form method = "post" action = "{% url 'login' %}">
+    {% csrf_token %}
+        
+        <div class="wrapper fadeInDown">
+            <div id="formContent" style ="margin-top:0px">
+                <!-- Tabs Titles -->
+                <div id="formFooter">
+                    <div class ="row">
+                        <div class="col-xs"><img src="{% static 'img/logo2.png' %}"></div> 
+                        <ul class = "col"><h1 class="text-white">Instituto Nacional de Comercio</h1></ul>   
+                    </div>                     
+                </div>
+                <!-- Icon -->
+                <div class="fadeIn first" style ="margin-top:30px ;margin-bottom:30px;">
+                    <img src="{% static 'img/login.png' %}" id="icon" alt="User Icon" />
+                </div>
+                <!-- Login Form -->
+                <form>    
+                    <input type ="text" id = "id_username" class = "fadeIn second" name= "username" placeholder="Nombre de Usuario">
+                    <input  type = "password" class ="fadeIn third"  name = "password" required id = "id_password" placeholder="Contraseña"/><input type = "hidden" name = "next" avlue = {{next}}/>
+                    <input type = "submit" class = "btn btn-succes btn-lg" value= "login" style ="margin-top:20px;background-color:#009954;margin-bottom:60px;">
+                </form>
+                <!-- Remind Passowrd -->
+                <!-- <div id="formFooter">
+                    <a></a>
+                </div> -->
+            </div>
+        </div>
+    </form>
+</body>    
+</html>

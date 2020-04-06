@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <body>
+
+        <div class="">
+
+            <div class = " container col-xs-4 row">
+
+
+                <h2 class="form-titulo" style ="margin-left: 5px">Gestion Asignatura</h2>
+                <div class = "container">
+
+                    <div class ="row">
+
+                        <a class="btn-buscar btn-busqueda-asig" onclick = "return abrir_modal('{% url 'gestor:crear_asignatura' %}', 'Registrar/notas')">Registrar</a>
+                    </div>
+
+                    <div class="cuerpo-tabla">
+
+                        <table class = "etiqueta-table table  table-mov-asig">
+
+                            <thead class = "etiqueta-thead thead-dark">
+
+                                <tr>
+                                    <th class="etiqueta-th th-borde width-th-xx">Codigo Asignatura</th>
+                                    <th class="etiqueta-th th-borde width-th-xx">Nombre Asignatura</th>
+                                    <th class="etiqueta-th th-borde width-th-xx">Editar</th>
+                                    <th class="etiqueta-th th-borde width-th-xx">Eliminar</th>
+                                </tr>
+
+                            </thead>
+
+                        {% for as in asignatura %}
+
+                            <tr class="etiqueta-tr">
+                                <th class="etiqueta-th th-borde width-th-xx">{{ as.codigo_asignatura }}</th>
+                                <th class="etiqueta-th th-borde width-th-xx">{{ as.nombre_asignatura }}</th>
+                                <td class="etiqueta-th th-borde width-th-xx" style = "text-align:center;"><a class="a-btn" href = "#" onclick = "return abrir_modal('{% url 'gestor:editar_asignatura' as.pk %}', 'Modificar/{{ as.nombre_asignatura }}')" class = "btn">Editar</a></td>
+                                <td class="etiqueta-th th-borde width-th-xx" style = "text-align:center;"><a class="a-btn" href = "#" onclick = "return abrir_modal('{% url 'gestor:eliminar_asignatura' as.pk %}', 'Eliminar/{{ as.nombre_asignatura }}')" class = "btn">Eliminar</a></td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+        <div id = "popup">
+
+        </div>
+    </body>
+{% endblock %}
+{% block js %}
+<script> 
+	var modal; 
+	function abrir_modal(url, titulo)
+	{
+		modal = $('#popup').dialog({
+			title :titulo,
+			modal :true,
+			width:500,
+			resizable:false
+		}).dialog('open').load(url)
+	}
+
+	function cerrar_model()
+	{
+		modal.dialog("close");
+	}
+	$(document).ready(function()
+	{
+		var table = $('#tabla').dataTable({
+			"language":{
+				url:"/static/localizacion/es_ES.json"
+			}
+		});
+	});
+</script>
+{% endblock %}

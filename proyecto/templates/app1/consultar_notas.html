@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<body>
+	<h1>Consultar Notas</h1>
+	<form action="{% url 'gestor:notas_mostrar' %}" method="POST" class="form-consultaNota">
+		{% csrf_token %}
+		<h2 class="form-titulo">Consultar Notas</h2>
+
+		<div class="contenedor-inputs"> Especialidad  :
+			<select class="lb-optionsEsp" required name = "especialidad">
+				<option></option>
+				{% for es in especialidad %}
+					<option class="lb-optionsEsp" value = "{{ es.codigo_especialidad }}">{{es.nombre_especialidad}}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		Nivel  :<select class="lb-optionsNv1" required name = "nivel">
+			<option></option>
+			{% for ni in nivel %}
+				<option class="lb-optionsNv1" value = "{{ni.id_nivel}}">{{ni.nombre_nivel}}</option>
+			{% endfor %}
+		</select>
+		
+		Sección  :<select class="lb-optionsNv1" required name = "seccion">
+			<option></option>
+			{% for se in seccion %}
+				<option class="lb-optionsNv1" value = "{{ se.id_seccion }}">{{ se.nombre_secion }}</option>
+			{% endfor %}
+		</select>
+
+		Período  :<select class="lb-optionsNv1" required name = "periodo">
+			<option></option>
+			{% for pe in periodo %}
+				<option class="lb-optionsNv1" value = "{{ pe.id_periodo }}">{{ pe.nombre_periodo }}</option>
+			{% endfor %}
+		</select>
+		</div>
+
+		<div>
+			<input type="submit" value="Mostrar" class="btn-mostrar" required>
+		</div>
+
+		<div id="cuerpo-tabla">
+			<table>
+				<thead>
+					<tr>
+						
+							<th>NIE</th><th>Alumno</th>{% for as in asignatura %} <th>{{ as.asignatura.nombre_asignatura }} </th>{% endfor %}<th>Promedio</th>
+						
+					</tr>
+				</thead>
+					{% for ma in matricula %}
+						<tr>
+							<th>{{ ma.alumno.nie }}</th><th>{{ ma.alumno.apellidos_alumno }} {{ ma.alumno.nombre_alumno }}</th><th>9.0</th>
+						<th>8.0</th><th>10.0</th><th>9.0</th><th>9.0</th><th>9.5</th><th>9.5</th>
+					{% endfor %}
+			</table>
+			<br></br>
+		</div>
+	</form>
+</body>
+{% endblock %}

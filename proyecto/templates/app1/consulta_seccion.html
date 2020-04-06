@@ -1,0 +1,108 @@
+
+{% extends 'base/base.html' %}
+
+{% block content %}
+	
+	<div class="">
+
+		<div class = " container col-xs-4 row">
+
+			<h2 class="form-titulo" style ="margin-left: 5px">Consultar Sección</h2>
+
+			<form  class="form-comun" method = "POST" action = "{% url 'gestor:consulta_secciona' %}">
+				{% csrf_token %} 				
+
+				
+				<div class="tamaño input-group mb-3">
+					<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Especialidad</label>
+					</div>
+					<select class="custom-select" id="inputGroupSelect01 especialidad" required name = "especialidad">
+							<option></option>
+							{% for es in especialidad %}
+								<option class="etiqueta-option" value = "{{ es.codigo_especialidad }}">{{ es.nombre_especialidad }}</option>
+							{% endfor %}
+					</select>
+				</div>
+
+				<div class="tamaño input-group mb-3">
+					<div class="input-group-prepend">
+						  <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
+					</div>
+					<select class="custom-select" id="inputGroupSelect01" required name = "nivel">
+							<option></option>
+							{% for ni in nivel %}
+							<option class="etiqueta-option" value = "{{ ni.id_nivel }}">{{ ni.nombre_nivel }}</option>
+							{% endfor %}
+					</select>
+				</div>
+
+				<div class="tamaño input-group mb-3">
+						<div class="input-group-prepend">
+								<label class="input-group-text" for="inputGroupSelect01">Secci&oacute;n</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01 seccion" required name = "seccion">
+								<option></option>
+								{% for sec in seccion %}
+								<option class="etiqueta-option" value = "{{ sec.id_seccion }}">{{ sec.nombre_secion }}</option>
+								{% endfor %}
+						</select>
+				</div>
+
+				<div class="btn-mostrar">
+
+					<input type="submit" value="Mostrar" class="btn-buscar" required>
+
+				</div>
+
+				
+
+			</form>
+
+			<div class="cuerpo-tabla">
+
+					<table class = "etiqueta-table table ">
+
+						<thead class = "etiqueta-thead thead-dark">
+
+							<tr class="">
+								<th class ="etiqueta-th th-borde width-th-xx" >Nie</th>
+								<th class ="etiqueta-th th-borde width-th-xx" >Apellidos</th>
+								<th class ="etiqueta-th width-th-xx">Nombres</th>
+							</tr>
+
+						</thead>
+
+						{% for ma in matricula %}
+
+						<tr class="etiqueta-tr">
+
+							<th class ="etiqueta-th th-borde width-th-xx" name ="nie_alumno">{{ma.alumno.nie}}</th>
+							<th class ="etiqueta-th th-borde width-th-xx" name ="apellidos_alumno">{{ma.alumno.apellidos_alumno}}</th>
+							<th class ="etiqueta-th width-th-xx">{{ma.alumno}}</th>
+							
+						</tr>
+
+
+						{% endfor %}
+
+					</table>
+
+					<br></br>
+
+			</div>
+
+		</div>
+
+	</div>
+	   
+
+		
+	
+{% endblock %}
+
+{% block js %}
+	<script>
+	</script>
+
+{% endblock %}

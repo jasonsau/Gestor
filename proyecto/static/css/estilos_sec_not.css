@@ -1,0 +1,248 @@
+
+.container {
+    
+    display: block;
+    float: left;
+    text-align: center;
+    margin: 15px 150px auto;
+
+
+}
+
+
+.form-titulo{
+	background: white;
+	color: black;
+	padding: 20px;
+	text-align: center;
+	font-weight: 100px;
+	font-size: 30px;
+	border-bottom: 5px solid crimson;
+	margin-top: 30px;
+	width: 100%;
+}
+
+/*
+.form-titulo-width{
+	width: 100%;
+}
+*/
+
+.contenedor-inputs{
+ 	width: 100%;
+}
+
+
+.form-busqueda{
+	width: 100%;
+	margin: 30px;
+	background: white;
+	border-radius: 7px;
+}
+
+
+.input-style{
+	float: left;
+	margin-right:10px;
+	height: 50px; 
+	border-radius: 3px;
+	border: 1px solid darkgray;
+}
+
+.btn-buscar{
+	
+	background: crimson;
+	color: #fff;
+	margin: auto;
+	padding: 10px 40px;
+	border-radius: 5px ;
+	
+}
+
+.btn-buscar:hover{
+	opacity:0.7;
+	text-decoration: unset;
+	color:#fff;
+}
+
+.btn-busqueda{
+	margin-left: 10px;
+	float: left;
+}
+
+
+.btn-busqueda-asig{
+	margin-left: -130px;
+	float: left;
+	border-radius: 5px;
+	color: #0f0f0f;
+}
+
+.row{
+	color: #fff;
+}
+
+.btn-registrar{
+	margin-left: 250px;
+
+}
+
+.tamaño{
+    width: 35%;
+    margin: 30px auto;
+}
+
+
+.cuerpo-tabla{
+	margin-top: 25px;
+}
+
+/*
+.cuerpo-tabla-width{
+	margin: 50px auto;
+	width: 100%;
+
+}*/
+
+/*
+.etiqueta-table{
+	margin:center;
+	background-color: white;
+	text-align: left;
+	width: 100%;
+}
+*/
+
+.input-group-text{
+	width: 125px;
+}
+
+.etiqueta-th{
+	padding: 15px;
+	
+}
+
+.width-th-x{
+	width: 200%;
+}
+
+.width-th-xx{
+	width: 33.3;
+}
+
+.width-th{
+	width: 10%;
+}
+
+.th-borde{
+	border-right:0.5px solid #646060;
+}
+
+.table-border{
+	border-left: 0.5px solid #646060;
+}
+
+.table-border-act1{
+	border-left: none;
+}
+
+.etiqueta-tr:hover{
+	background: crimson;
+	opacity: 0.9;
+	color: #fff;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+
+.table-mov{
+	margin-left:-25px;
+}
+
+.table-mov-asig{
+	margin-left: -145px;
+}
+/*
+.etiqueta-thead{
+	background-color: #246355;
+	border-bottom: solid 5px #0F236D;
+	color: white;
+}
+*/
+
+
+
+.width-form-label{
+	width: 50%;
+	float: left;
+	padding-left: 20px;
+}
+
+
+
+.input-group-select{
+	width: 100%;
+}
+
+.input-text{
+	width: 200px;
+}
+
+
+.input-padding-top{
+	padding-top: 100px;
+}
+
+
+.table-margin-left{
+	margin-left: -30px;
+}
+
+.table-margin-left2{
+	margin-left: -20px;
+}
+
+.table-margin-left3{
+	margin-left: -15px;
+}
+
+.table-margin-left4{
+	margin-left: -10px;
+}
+
+
+
+.a-btn{	
+	font: oblique bold 100% cursive;
+	color:   #2e86c1;
+}
+
+.a-btn:hover{
+	text-decoration: underline;
+}
+
+/*
+.label-float{
+	display: block;
+
+
+}
+
+/*
+.width-form-select{
+	width: 50%;
+	float: left;
+}
+
+/*consulta_alumno
+.float-select{
+	float: left;
+}
+*/
+.foto-inicio
+{
+    width:35px;
+    height: 35px;
+}

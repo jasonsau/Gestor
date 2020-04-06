@@ -1,0 +1,161 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <body>
+            <div class = "container col-xs-4 row">
+
+                  <h2 class="form-titulo" style ="margin-left: 5px">Registro Alumno</h2>
+
+                  <div class = "col-sm">
+
+                  	<form method = "POST" action = "{% url 'gestor:registro_alumno' %}">
+
+                  		{% csrf_token %}   
+
+                              <div class="width-form-label float-label">
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Nie</span>
+                                          </div>
+                                          <input required pattern="[0-9]{0,50}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id = "nie" name = "nie">
+                                    </div> 
+
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Nombre Alumno</span>
+                                          </div>
+                                          <input required pattern="[A -z]{0,50}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "nombre_alumno" id = "nombre_alumno">
+                                    </div>                                   
+                                     
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Apellidos Alumno</span>
+                                          </div>
+                                          <input type="text" required pattern="[A -z]{0,50}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"name = "apellidos_alumno" id = "apellidos_alumno">
+                                    </div>                                    
+                                          
+                                    
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Dirección Alumno</span>
+                                          </div>
+                                          <input type="text" required pattern="[A -z]{0,100}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "direccion_alumno" id = "direccion_alumno">
+                                    </div>                                    
+                                          
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Fecha de Nacimiento</span>
+                                          </div>
+                                          <input type="date" required class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "fechanacimiento" id = "fechanacimiento">
+                                    </div>                                   
+
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Dui Encargado</span>
+                                          </div>
+                                          <input type="text" required pattern="[0-9]{0,10}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "dui" id = "dui">
+                                    </div>
+
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Nombre Encargado</span>
+                                          </div>
+                                          <input type="text" required pattern="[A -z]{0,50}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name ="nombre_encargado" id = "nombre_encargado">
+                                    </div>                                         
+                                    
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Direccion del Encargado</span>
+                                          </div>
+                                          <input type="text" required pattern="[A -z]{0,100}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "direccion_encargado" id ="direccion_encargado">
+                                    </div>
+
+
+                                    <div class="input-group mb-3">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Parentesco</span>
+                                          </div>
+                                          <input type="text" required pattern="[A -z]{0,50}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "parentesco" id = "parentesco">
+                                    </div>
+                                                             
+                              </div>
+                                          
+                              
+
+                              <div class="width-form-label float-select">
+
+
+                                    <div class="input-group mb-3 input-group-select input-padding-top">
+                                          <div class="input-group-prepend">
+                                                <span class="input-group-text input-text" id="inputGroup-sizing-default">Fecha Matricula</span>
+                                          </div>
+                                          <input type="date" required class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name = "fechamatricula"  id = "fechamatricula">
+                                    </div>
+
+
+                                    <div class="tamaño input-group mb-3 input-group-select">
+                                          <div class="input-group-prepend">
+                                                <label class="input-group-text input-text" for="inputGroupSelect01">Especialidad</label>
+                                          </div>
+                                          <select class="custom-select" id="inputGroupSelect01 especialidad" required name = "especialidad">
+                                                <option></option>
+                                                {% for es in especialidad %}
+                                                <option class="etiqueta-option" value = "{{ es.codigo_especialidad }}">{{ es.nombre_especialidad }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </div>
+
+
+                                    <div class="tamaño input-group mb-3 input-group-select">
+                                          <div class="input-group-prepend">
+                                                <label class="input-group-text input-text" for="inputGroupSelect01">Nivel</label>
+                                          </div>
+                                          <select class="custom-select" id="inputGroupSelect01 nivel" required name = "nivel">
+                                                <option></option>
+                                                {% for ni in nivel %}
+                                                <option class="etiqueta-option" value = "{{ ni.id_nivel }}">{{ ni.nombre_nivel }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </div>
+
+
+                                    <div class="tamaño input-group mb-3 input-group-select">
+                                          <div class="input-group-prepend">
+                                                <label class="input-group-text input-text" for="inputGroupSelect01">Secci&oacute;n</label>
+                                          </div>
+                                          <select class="custom-select" id="inputGroupSelect01 seccion" required name = "seccion">
+                                                <option></option>
+                                                {% for sec in seccion %}
+                                                <option class="etiqueta-option" value = "{{ sec.id_seccion }}">{{ sec.nombre_secion }}</option>
+                                                {% endfor %}
+                                          </select>
+                                    </div>
+
+                              </div>
+
+                              
+                              
+
+                              <div class="btn-mostrar">
+
+                                    <!--<input type="submit" value="Mostrar" class="btn-buscar" required>-->
+                                    <button type ="submit" class="btn-buscar" required>Guardar</button>
+
+                              </div>                                 
+                  		
+
+
+      	    		</form>
+
+                  </div>                        
+ 
+            </div>
+
+    </body>
+{% endblock %}

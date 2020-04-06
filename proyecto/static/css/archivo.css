@@ -1,0 +1,82 @@
+
+h1
+{       
+    text-align: left;
+    font: oblique bold 120% cursive;
+    font-weight: 100px;
+    font-size: 30px;
+}
+
+h2
+{
+    text-align: center;
+    font: oblique bold 120% cursive;
+    color: #fff;
+    padding-right: 150px;
+    margin-bottom: 30px;
+}
+
+.imglogo
+{
+    margin:auto;
+    display:block;
+    width:150px;
+    height: 150px;
+
+}
+AsignaturaForm
+
+.foto
+{
+    width:35px;
+    height: 35px;
+}
+
+.p-span{
+    text-align: center;
+}
+
+
+.img-margin-top{
+    margin-top: 50px;
+}
+
+.img-span{      
+    margin-left:-180px;
+}
+
+
+.text-span{
+    margin-left:150px;
+    font-weight: 100px;
+    font-size: 30px;
+    font: oblique bold 200% cursive;
+    border-bottom: 5px solid crimson;
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+
+/*
+.boxes
+{
+    display: block;
+    width:15%;
+    padding:15px;
+    border:none;
+    margin:auto;
+    text-align:center;
+}
+
+/*
+.color
+{
+    color:white;
+}
+.fotodoc{
+    height:30px;
+    width: 30px;
+}
+
+

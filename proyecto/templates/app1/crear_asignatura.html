@@ -1,0 +1,27 @@
+<div>
+        <div class="modal-content">
+            {% if object %}
+                <form role = "form" action="{% url 'gestor:editar_asignatura' object.pk %}" method="POST">
+                    {% else %}
+                    <form role = "form" action="{% url 'gestor:crear_asignatura' %}" method="POST">
+                        {% endif %}
+                            <div class="modal-body">
+                                {% csrf_token %}
+                                <div class="panel-body">
+                                    
+                                    {{ form.as_p }}
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col-lg-12 text-right">
+                                    <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-buscar" name="submit" value="Guardar" style ="background-color:#009954">
+                                    <a href = "{% url 'gestor:gestion_asignatura' %}"  class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent btn-buscar">
+                                        Cancelar
+                                    </a>
+                                </div>
+                            </div>
+                    </form>
+                </form>
+        </div>
+</div>

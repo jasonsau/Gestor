@@ -1,0 +1,128 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+	{% block content %}
+
+		<div class = "container">
+
+			<h2 class="form-titulo" style ="margin-left: 5px">Buscar Alumno</h2>
+
+			<div class="form-busqueda" id= "buscarAlumno" >				
+
+
+				<form method="POST" action="{% url 'gestor:consulta_alumnoa' %}">
+
+					{% csrf_token %} 
+
+					<input type="text" name="nie"  id = "idnie" class = "input-style" placeholder="NIE" required pattern="[0-9]{0,10}" title = "Solo pueden ser numeros">
+					<input type = "submit" value = "Buscar" id = "buscarAlumno" class = "btn-buscar btn-busqueda">
+
+				</form>
+
+				<a class="btn-buscar btn-registrar " href = "{% url 'gestor:registro' %}" >Registrar</a>
+
+				<h3 class="form-titulo" style ="margin-left: -25px">Informacion personal</h3>
+
+				<div id="cuerpo-tabla">
+
+					<table class = "table table-mov" id = "tablaalumno">
+
+						<thead class="thead-dark">
+
+							<tr >
+								<th class ="">Apellidos</th>
+								<th class ="">Nombres</th>
+								<th class ="">Encargado</th>
+								<th  class="">Direccion</th>
+								<th class ="">Fecha de Nacimiento</th>
+								<th class = "">Editar</th>
+							</tr>
+
+						</thead>
+
+						{% for ma in matricula %}
+
+						<tr id = "datosalumno">
+							<th id = "apellido">{{ ma.alumno.apellidos_alumno }}</th>
+							<th id = "nombre">{{ ma.alumno.nombre_alumno }}</th>
+							<th id = "encargado">{{ ma.alumno.encargado }}</th>
+							<th id = "direccion">{{ ma.alumno.direccion }}</th>
+							<th id = telefono>{{ ma.alumno.fecha_nacimiento }}</th>
+							<th><a class="a-btn" href = "#" onclick = "return abrir_modal('{% url 'gestor:editar_alumno' ma.pk %}', 'Modificar/{{ ma.alumno.nombre_alumno }}')" class = "btn" >Editar</a></th>
+						</tr>
+
+						{% endfor %}sdgfgsdf
+
+					</table>
+
+				</div>
+
+				<h3 class="form-titulo" style ="margin-left: -25px">Informacion Institucional</h3>
+
+				<div id="cuerpo-tabla">
+
+					<table class = "table table-mov">
+
+						<thead thead-style class="thead-dark">
+
+							<tr>
+								<th class ="th-style">Fecha de Matricula</th>
+								<th class ="th-style">Nivel</th>
+								<th class ="th-style">Especialidad</th>
+								<th class ="th-style">Sección</th>
+							</tr>
+
+						</thead>
+
+						<tr id = "datosespecialidad" class="hovertr">
+
+							{% for ma in matricula %}
+
+								<th class ="th-style">{{ ma.fecha_matricula }}</th>
+								<th class ="th-style">{{ ma.nivel_matricula }}</th>
+								<th class ="th-style">{{ ma.especialidad_matricula }}</th>
+								<th class ="th-style">{{ ma.seccion_matricula }}</th>
+
+							{% endfor %}
+
+						</tr>
+
+					</table>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div id = "popup">
+
+		</div>
+
+{% endblock %}
+	
+{% block js %}
+<script> 
+	var modal; 
+	function abrir_modal(url, titulo)
+		{
+			modal = $('#popup').dialog({
+				title :titulo,
+				modal :true,
+				width:500,
+				resizable:false
+			}).dialog('open').load(url)
+		}
+	
+		function cerrar_model()
+		{
+			modal.dialog("close");
+		}
+		$(document).ready(function()
+		{
+			var table = $('#tabla').dataTable({
+				"language":{
+					url:"/static/localizacion/es_ES.json"
+				}
+			});
+		});
+</script>
+{% endblock %}

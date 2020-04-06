@@ -1,0 +1,79 @@
+<div>
+	<div class="modal-content">
+		<form class = "form-consulta" method="POST" action = "{% url 'gestor:pruebaextendido' %}">
+			<div class="modal-header">
+                <div class="input-group-prepend"> 
+                        <label class="input-group-text" for="inputGroupSelect01">NIE</label>
+                        <input type="text" name="nie"  id = "idnie" class = "input-style" placeholder="NIE" required  readonly="readonly" value = "{{ ma.alumno.nie}}">
+                </div>
+                
+            </div>
+
+            <div class="modal-body">
+				{% csrf_token %}  
+				<div class="panel-body">
+
+                     <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Especialidad</label>
+                        <input type = "text" name = "especialidad" id = "idespecialidad" palceholder="especialidad" readonly="readonly" value = "{{ ma.especialidad_matricula.codigo_especialidad }}">
+                    </div>
+                    
+                    <div class="input-group-prepend" style ="margin-top:20px">
+                        <label class="input-group-text" for="inputGroupSelect01">Sección</label>
+                        <input type ="text" name = "seccion" readonly="readonly" value = "{{ma.seccion_matricula.id_seccion}}">
+                    </div>
+                    
+                    <div class="input-group-prepend" style ="margin-top:20px">
+                        <label class="input-group-text" for="inputGroupSelect01">Nivel</label>
+                        <input type = "text" name = "nivel" readonly="readonly" value = "{{ ma.nivel_matricula.id_nivel }}">
+                    </div>
+                
+                    <div>
+                        <div class="input-group-prepend" style ="margin-top:20px">
+                            <label class="input-group-text" for="inputGroupSelect01">Periodo</label>
+                            <select class="custom-select" id="inputGroupSelect01 especialidad" required name = "periodo">
+                                <option></option>
+                                {% for pe in periodo %}
+                                <option value = "{{pe.id_periodo}}">{{pe.nombre_periodo}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    
+                        <div class="input-group-prepend" style ="margin-top:20px">
+                            <label class="input-group-text" for="inputGroupSelect01">Materia</label>
+                            <select class="custom-select" id="inputGroupSelect01 especialidad" required name = "asignatura">
+                                <option></option>
+                                {% for mat in asignatura %}
+                                <option value = "{{ mat.codigo_asignatura }}">{{mat.nombre_asignatura}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group-prepend" style ="margin-top:20px">
+                        <label class="input-group-text" for="inputGroupSelect01">Actividad 1</label>
+                        <input type = "text" name = "actividad1" required>
+                    </div>
+
+                    <div class="input-group-prepend" style ="margin-top:20px">
+                        <label class="input-group-text" for="inputGroupSelect01">Actividad 2</label>
+                        <input type = "text" name = "actividad2" required>
+                    </div>
+
+                    <div class="input-group-prepend" style ="margin-top:20px">   
+                        <label class="input-group-text" for="inputGroupSelect01">Actividad 3</label>
+                        <input type = "text" name = "actividad3" required>
+                    </div>    
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="col-lg-12 text-right">
+                    <input type="submit" class="btn btn-primary btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" name="submit" value="Guardar" style ="background-color:#009954" required>
+                    <a href =" {% url 'gestor:registro_nota' %}" class=" btn btn-secondary btn-lg mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Cancelar</a>
+                </div>
+            </div>
+
+        </form>
+	</div>
+</div>

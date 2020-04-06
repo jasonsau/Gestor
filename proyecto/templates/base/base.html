@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Inicio{% endblock %}</title>
+	{% block static %}
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+ 
+
+	<link rel="stylesheet"  href="{% static 'css/bootstrap.min.css' %}">
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<link rel = "stylesheet" href = "{% static 'css/archivo.css' %}">
+	<link rel="stylesheet" href="{% static 'css/estilos_sec_not.css' %}">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/jquery-ui.css' %}"/>
+	<link rel = "stylesheet" type = "text/css" href = "{% static 'css/jquery.dataTables.min.css' %}"/>
+	<script type = "text/javascript" src = "{% static 'js/jquery.js' %}" charset="UTF-8"></script>
+	<script type = "text/javascript" src = "{% static 'js/bootstrap.min.js' %}" charset="UTF-8"></script>
+	<script type = "text/javascript" src = "{% static 'js/jquery-ui.js' %}"></script>
+	<script type = "text/javascript" src = "{% static 'js/jquery.dataTables.min.js' %}"></script>	
+	{% endblock %}
+	
+</head>	
+
+	<body>
+		<nav class = "navbar navbar-light" style = " background-color:#008854;">
+			<ul class = "margen"><h1 class="text-white">Instituto Nacional de Comercio</h1></ul>
+			<a class="btn btn-success" href = "{% url 'logout' %}?next={{request.path}}">Cerrar Sesion</a>
+		</nav>
+
+		<div class="list-group-item " style ="background-color: #333333;"> 
+			<div class = "list-group ancho" style = "width:16%; float:left; padding-rigth:0px;">
+					<li class="list-group-item" style ="background-color: #009954;">
+						<img src = "{% static 'img/logo.png' %}" class ="imglogo">
+					</li>	
+
+					<div>
+							<li class="list-group-item" style ="background-color: #008854">		
+								<div class ="row">
+									<div class="col-xs">
+										<img src = "{% static 'img/inicio.png' %}" class = "foto-inicio">
+									</div>
+									
+									<div class="col">
+										<a href = "{% url 'gestor:index' %}" class = "btn btn-success btn-block btn-lg">Inicio</a>
+									</div>
+								</div>
+							</li>
+
+							<li class="list-group-item" style ="background-color: #008854;">
+								<div class ="row">
+									<div class="col-xs">
+										<img src = "{% static 'img/seccion.svg' %}" class = "foto-inicio">
+									</div>
+									
+									<div class="col">
+										<a href = "{% url 'gestor:consulta_especialidad' %}" class = "btn btn-success btn-block btn-lg">Seccion</a>
+									</div>
+								</div>
+							</li>
+							
+							<li class="list-group-item" style ="background-color: #008854;">
+								<div class ="row">
+									<div class="col-xs">
+										<img src = "{% static 'img/usuario.png' %}" class = "foto-inicio">
+									</div>
+									<div class="col">
+										<a href = "{% url 'gestor:consulta_alumno' %}" class = "btn btn-success btn-block btn-lg">Alumno</a>
+									</div>
+								</div>
+							</li>
+
+							<li class="list-group-item" style ="background-color: #008854;">
+								<div class ="row">
+									<div class="col-xs">	
+										<img src = "{% static 'img/notas.png' %}" class = "foto-inicio">
+									</div>
+									
+									<div class="col">
+										<a href = "{% url 'gestor:registro_nota' %}" class = "btn btn-success btn-block btn-lg">Notas</a>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item" style ="background-color: #008854;">
+								<div class ="row">
+									<div class="col-xs">
+										<img src = "{% static 'img/consulta.png' %}" class = "foto-inicio">
+									</div>
+										
+									<div class="col">
+										<a href = "{% url 'gestor:gestion_asignatura' %}" class = "btn btn-success btn-block btn-lg">Asignatura</a>
+									</div>
+								</div>
+							</li>
+							<li class="list-group-item" style ="background-color: #008854">
+								<div style ="margin-bottom:370px">
+								</div>
+							</li> 
+					</div>
+			
+			</div>
+			
+			<div>
+				<nav>
+					<ul class = "margen"><h2>Registro académico 2019</h2></ul>
+				</nav>
+			</div>
+
+		</div>	
+
+
+		{% block content %}
+
+			<div>
+
+				<p class="p-span" style ="margin-top:90px">
+
+					<span>
+						<img class="img-margin-top" src="{% static 'img/logo.png' %}"> <br><br><br>
+					</span> 
+
+					<span >
+						BIENVENIDO/A AL SISTEMA GESTOR DE NOTAS <br>
+					</span>
+
+					<span >
+						INTITUTO NACIONAL DE COMERCIO <br>
+					</span>
+
+					<span >
+						INCO 	
+					</span>						
+				</p>
+
+			</div>
+
+		{% endblock %}
+
+
+	
+
+	
+	{% block js %}
+	{% endblock %}
+</body>
+	
+</html>
